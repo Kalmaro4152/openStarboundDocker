@@ -33,7 +33,7 @@ RUN apt install -y \
     libvorbisfile3 \
     libstdc++6
 
-RUN adduser --disabled-login --gecos "Starbound Server" starbound
+RUN adduser starbound
 
 USER starbound
 
@@ -45,6 +45,6 @@ VOLUME ["/home/starbound/openStarbound"]
 
 ADD --chown=starbound:starbound --chmod=u+rwx entry.sh /entry.sh
 
-EXPOSE 21075/tcp 21075/udp
+EXPOSE 21025/tcp
 
 ENTRYPOINT ["/entry.sh"]

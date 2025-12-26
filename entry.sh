@@ -8,15 +8,17 @@ if [ ! -d "$DATA/linux/starbound_server" ]; then
 
     wget -q --show-progress https://github.com/OpenStarbound/OpenStarbound/releases/download/v0.1.14/OpenStarbound-Linux-Clang-Server.zip
     unzip OpenStarbound-Linux-Clang-Server.zip
+    echo "Removing top level zip"
     rm OpenStarbound-Linux-Clang-Server.zip
     tar -xvf server.tar
+    echo "Removing second level tar"
     rm server.tar
 
     cd server_distribution
-    mv --verbose -f assets "$DATA/assets"
-    mv --verbose -f linux "$DATA/linux"
-    mv --verbose -f mods "$DATA/mods"
 
+    mv --verbose -f assets "$DATA/"
+    mv --verbose -f linux "$DATA/"
+    mv --verbose -f mods "$DATA/"
     cd ..
     rm -rf server_distribution
 
